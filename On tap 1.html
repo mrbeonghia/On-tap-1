@@ -26,28 +26,29 @@
 <p>Mảng sau khi chèn: <span id="insertNum"></span></p>
 <script>
     let n;
-    function inputNumber(){
-        do{
+    function inputNumber() {
+        do {
             n = +prompt("Nhập n:");
-            if (n%2===0 || n<0){
+            if (n % 2 === 0 || n < 0) {
                 alert("Nhập lại n lẻ dương")
             }
         }
-        while (n%2===0||n<0);
+        while (n % 2 === 0 || n < 0);
         document.getElementById("inputNum").innerHTML = n + ' là số lẻ dương';
     }
+
     function checkPrime() {
-            let result = isPrime(n);
-            if (result === 0) {
-                document.getElementById("prime").innerHTML =  n+" không phải số nguyên tố.";
-            }
-            if (result === 1) {
-                document.getElementById("prime").innerHTML =  n+" là số nguyên tố.";
-            }
+        let result = isPrime(n);
+        if (result === 0) {
+            document.getElementById("prime").innerHTML = n + " không phải số nguyên tố.";
+        }
+        if (result === 1) {
+            document.getElementById("prime").innerHTML = n + " là số nguyên tố.";
+        }
 
     }
 
-    function isPrime(n){
+    function isPrime(n) {
         let count = 0;
         if (n < 2) {
             return 0;
@@ -68,10 +69,10 @@
         let num = +prompt("Nhập số lượng số nguyên tố cần in ra");
         let count = 0;
         let i = 2;
-        let str = '';
+        let str = "";
         while (count < num) {
             if (isPrime(i)) {
-                str += i +',';
+                str += i + ',';
                 count++;
             }
             i++;
@@ -80,6 +81,7 @@
     }
 
     var arr = [];
+
     function inputArray() {
         let n = +prompt("Nhập số lượng phần tử của mảng");
         for (let i = 0; i < n; i++) {
@@ -92,46 +94,47 @@
         let str = "";
         for (let i = 0; i < arr.length; i++) {
             if (isPrime(arr[i])) {
-                str+=arr[i]+',';
+                str += arr[i] + ',';
             }
         }
         document.getElementById("primeArr").innerHTML = str;
     }
+
     var num;
-    function checkNumber(){
+
+    function checkNumber() {
         num = +prompt("Nhập số cần kiểm tra:");
         for (let i = 0; i < arr.length; i++) {
-            if (num === arr[i]){
+            if (num === arr[i]) {
                 document.getElementById("checkNum").innerHTML = "Có";
                 break;
-            }
-            else {
-                 document.getElementById("checkNum").innerHTML = "Không";
+            } else {
+                document.getElementById("checkNum").innerHTML = "Không";
             }
         }
     }
 
-    function deleteNumber(){
-        for(let i = 0; i < arr.length; i++){
-            if ( arr[i] === num ) {
+    function deleteNumber() {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === num) {
                 arr.splice(i, 1);
             }
         }
         document.getElementById("deleteNum").innerHTML = arr;
     }
 
-    function sortArray(){
-        arr.sort(function (a, b){
-            return a-b;
+    function sortArray() {
+        arr.sort(function (a, b) {
+            return a - b;
         });
         document.getElementById("sortArr").innerHTML = arr;
     }
 
-    function insertNumber(){
+    function insertNumber() {
         let x = prompt("Nhập phần tử thêm vào:");
         arr.push(x);
-        arr.sort(function (a, b){
-            return a-b;
+        arr.sort(function (a, b) {
+            return a - b;
         });
         document.getElementById("insertNum").innerHTML = arr;
     }
