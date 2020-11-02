@@ -99,7 +99,7 @@
     }
     var num;
     function checkNumber(){
-        var num = +prompt("Nhập số cần kiểm tra:");
+        num = +prompt("Nhập số cần kiểm tra:");
         for (let i = 0; i < arr.length; i++) {
             if (num === arr[i]){
                 document.getElementById("checkNum").innerHTML = "Có";
@@ -115,15 +115,9 @@
         for(let i = 0; i < arr.length; i++){
             if ( arr[i] === num ) {
                 arr.splice(i, 1);
-                i--;
             }
-
         }
-        let str='';
-        for (let i = 0; i < arr.length; i++) {
-            str += arr[i] + ',';
-        }
-        document.getElementById("deleteNum").innerHTML = str ;
+        document.getElementById("deleteNum").innerHTML = arr;
     }
 
     function sortArray(){
