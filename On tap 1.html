@@ -5,12 +5,12 @@
     <title>Ôn tập Module 1</title>
 </head>
 <body>
-<button id="checkNumber" onclick="inputNumber()">Kiểm tra số lẻ dương</button>
+<button id="inputNumber" onclick="inputNumber()">Kiểm tra số lẻ dương</button>
 <button id="checkPrime" onclick="checkPrime()">Kiểm tra số nguyên tố</button>
 <button id="numberOfPrime" onclick="numberOfPrime()">Hiển thị N số nguyên tố đầu</button>
 <button id="inputArray" onclick="inputArray()">Nhập và in ra mảng</button>
-<button id="primeArray" onclick="primeArray()">Hiển thị các số nguyên tố trong mảng</button>
-<button id="checkNumber" onclick="checkNumber()">kiểm tra N có tồn tại trong mảng</button>
+<button id="primeArray" onclick="primeArray()">Hiển thị các số nguyên tố trong mảng</button><br><br>
+<button id="checkNumber" onclick="checkNumber()">Kiểm tra N có tồn tại trong mảng</button>
 <button id="deleteNumber" onclick="deleteNumber()">Xoá N khỏi mảng</button>
 <button id="sortArray" onclick="sortArray()">Sắp xếp các phần tử của mảng tăng dần</button>
 <button id="insertNumber" onclick="insertNumber()">Chèn X vào mảng</button>
@@ -20,7 +20,7 @@
 <p>Hiển thị các số nguyên tố đầu: <span id="numberPrime"></span></p>
 <p>Mảng vừa nhập: <span id="inputArr"></span></p>
 <p>Các số nguyên tố trong mảng: <span id="primeArr"></span></p>
-<p>Số vừa nhập có nằm trong mảng: <span id="checkNum"></span></p>
+<p>Số N vừa nhập có nằm trong mảng: <span id="checkNum"></span></p>
 <p>Mảng sau khi xoá N: <span id="deleteNum"></span></p>
 <p>Sắp xếp mảng theo thứ tự tăng dần: <span id="sortArr"></span></p>
 <p>Mảng sau khi chèn: <span id="insertNum"></span></p>
@@ -30,12 +30,13 @@
         do {
             n = +prompt("Nhập n:");
             if (n % 2 === 0 || n < 0) {
-                alert("Nhập lại n lẻ dương")
+                alert("Nhập lại n lẻ dương");
             }
         }
         while (n % 2 === 0 || n < 0);
         document.getElementById("inputNum").innerHTML = n + ' là số lẻ dương';
     }
+
 
     function checkPrime() {
         let result = isPrime(n);
@@ -47,6 +48,7 @@
         }
 
     }
+
 
     function isPrime(n) {
         let count = 0;
@@ -65,6 +67,7 @@
         }
     }
 
+
     function numberOfPrime() {
         let num = +prompt("Nhập số lượng số nguyên tố cần in ra");
         let count = 0;
@@ -79,6 +82,7 @@
         }
         document.getElementById("numberPrime").innerHTML = str;
     }
+
 
     var arr = [];
 
@@ -100,6 +104,7 @@
         document.getElementById("primeArr").innerHTML = str;
     }
 
+
     var num;
 
     function checkNumber() {
@@ -114,6 +119,7 @@
         }
     }
 
+
     function deleteNumber() {
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] === num) {
@@ -123,12 +129,14 @@
         document.getElementById("deleteNum").innerHTML = arr;
     }
 
+
     function sortArray() {
         arr.sort(function (a, b) {
             return a - b;
         });
         document.getElementById("sortArr").innerHTML = arr;
     }
+
 
     function insertNumber() {
         let x = prompt("Nhập phần tử thêm vào:");
