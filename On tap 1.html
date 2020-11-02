@@ -128,7 +128,12 @@
     }
 
     function insertNumber(){
-
+        let x = prompt("Nhập phần tử thêm vào:");
+        arr.push(x);
+        arr.sort(function (a, b){
+            return a-b;
+        });
+        document.getElementById("insertNum").innerHTML = arr;
     }
 </script>
 </body>
