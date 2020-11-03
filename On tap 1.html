@@ -85,10 +85,10 @@
 
 
     var arr = [];
-
+    var numArr;
     function inputArray() {
-        let n = +prompt("Nhập số lượng phần tử của mảng");
-        for (let i = 0; i < n; i++) {
+        numArr = +prompt("Nhập số lượng phần tử của mảng");
+        for (let i = 0; i < numArr; i++) {
             arr[i] = +prompt("Nhập phần tử a[" + i + "]");
         }
         document.getElementById("inputArr").innerHTML = arr;
@@ -121,11 +121,14 @@
 
 
     function deleteNumber() {
-        for (let i = 0; i < arr.length; i++) {
-            if (arr[i] === num) {
-                arr.splice(i, 1);
+        let i,c;
+        for (c = i = 0; i < numArr; i++) {
+            if (arr[i] !== num) {
+                arr[c] = arr[i];
+                c++;
             }
         }
+        arr.length = c;
         document.getElementById("deleteNum").innerHTML = arr;
     }
 
@@ -140,7 +143,11 @@
 
     function insertNumber() {
         let x = prompt("Nhập phần tử thêm vào:");
-        arr.push(x);
+        for (let i = numArr; i > 0 ; i--) {
+            arr[i] =arr[i-1];
+        }
+        arr[0] = x;
+        ++ numArr;
         arr.sort(function (a, b) {
             return a - b;
         });
